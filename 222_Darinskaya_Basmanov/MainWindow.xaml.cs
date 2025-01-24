@@ -38,7 +38,7 @@ namespace _222_Darinskaya_Basmanov
                     double result = Helper.Function(Helper.sh(x), x, y);
                     if (double.IsNaN(result) || double.IsInfinity(result))
                     {
-                        Result.Text = "Не возможно посчитать";
+                        Result.Text = "Невозможно посчитать";
                     }
                     else
                     {
@@ -48,12 +48,26 @@ namespace _222_Darinskaya_Basmanov
                 else if (ActiveButton == RadioButton2)
                 {
                     double result = Helper.Function(Math.Pow(x, 2), x, y);
-                    Result.Text = result.ToString();
+                    if (double.IsNaN(result) || double.IsInfinity(result))
+                    {
+                        Result.Text = "Невозможно посчитать";
+                    }
+                    else
+                    {
+                        Result.Text = result.ToString();
+                    }
                 }
                 else if (ActiveButton == RadioButton3)
                 {
                     double result = Helper.Function(Math.Pow(Math.E, x), x, y);
-                    Result.Text = result.ToString();
+                    if (double.IsNaN(result) || double.IsInfinity(result))
+                    {
+                        Result.Text = "Невозможно посчитать";
+                    }
+                    else
+                    {
+                        Result.Text = result.ToString();
+                    }
                 }
             }
             catch (FormatException error)
