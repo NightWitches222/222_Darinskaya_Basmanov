@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace _222_Darinskaya_Basmanov
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         RadioButton ActiveButton;
@@ -39,7 +36,14 @@ namespace _222_Darinskaya_Basmanov
                 if (ActiveButton == RadioButton1)
                 {
                     double result = Helper.Function(Helper.sh(x), x, y);
-                    Result.Text = result.ToString();
+                    if (double.IsNaN(result) || double.IsInfinity(result))
+                    {
+                        Result.Text = "Не возможно посчитать";
+                    }
+                    else
+                    {
+                        Result.Text = result.ToString();
+                    }
                 }
                 else if (ActiveButton == RadioButton2)
                 {
